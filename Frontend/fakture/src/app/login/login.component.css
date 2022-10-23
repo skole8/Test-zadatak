@@ -1,0 +1,17 @@
+.divLogin{
+    margin-top: 80px;
+    font-size: x-large;
+    text-align: center;
+}
+
+.divRegistracija{
+    margin-top: 80px;
+    font-size: x-large;
+    text-align: center;
+    display: none;
+}
+
+.dugmad{
+    margin: 1%;
+    font-size: large;
+}

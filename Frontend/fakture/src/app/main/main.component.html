@@ -1,0 +1,112 @@
+<div>
+  <div class="divHeader">
+    <label id="lblEmail"></label>
+    <button class="dugmad" (click)="logout()" id="btnLogout">Odjavi se</button>
+  </div>
+  <div class="divLijevo">
+    <div class="divFakture">
+    <h1 class="naslov" id="hdFakture">Fakture</h1>
+    <div class="divFaktura" *ngFor="let faktura of fakture">
+      Id: <span class="spanklasa">{{ faktura.id_fakture }}</span><br>
+      Partner: <span class="spanklasa">{{ faktura.partner }}</span><br>
+
+      <button class="dugmad" (click)="pregledFakture(this.faktura)">Pregled fakture</button>
+      <button class="dugmad" (click)="brisanjeFakture(this.faktura.id_fakture)">Izbrisi fakturu</button><br>
+
+    </div>
+    </div>
+    <div class="divPregledFakture" id="divPregledFakture">
+      <h1 style="margin-left: 1%;" id="hdPregledFakture" class="naslov">Pregled fakture</h1>
+      <div class="divFakturaPregled">
+        <label>Id: </label> <label class="spanklasa" id="lblIdFakture"></label><br>
+        <label>Partner: </label> <label class="spanklasa" id="lblPartner"></label><br>
+        <label>Datum: </label> <label class="spanklasa" id="lblDatum"></label><br>
+        <label>Iznos bez PDV: </label> <label class="spanklasa" id="lblIznosBezPDV"></label><br>
+        <label>Posto rabata: </label> <label class="spanklasa" id="lblPostoRabata"></label><br>
+        <label>Rabat: </label> <label class="spanklasa" id="lblRabat"></label><br>
+        <label>Iznos sa rabatom bez PDV: </label> <label class="spanklasa" id="lblIznosSaRabatomBezPDV"></label><br>
+        <label>PDV: </label> <label class="spanklasa" id="lblPDV"></label><br>
+        <label>Ukupno: </label> <label class="spanklasa" id="lblUkupno"></label><br>
+        
+      </div>
+      <div class="divDugmad">
+        <button class="btnOperacijeNadFakturom" (click)="brisanjeFakture(this.fakturaNaPregledu.id_fakture)">Izbrisi fakturu</button><br>
+        <button class="btnOperacijeNadFakturom" (click)="izmjenaFakture()">Izmjeni fakturu</button>
+      </div>
+      <div class="divArtikliNaPregledu">
+      <div class="divArtikalPregled" *ngFor="let artikal of artikliFaktureNaPregledu;let i = index">
+        Redni broj: <span> {{i+1}} </span><br>
+        Naziv artikla: <span class="spanklasa">{{ artikal.naziv_artikla }}</span><br>
+        Kolicina  <span class="spanklasa">{{ artikal.kolicina }}</span><br>
+        Cijena  <span class="spanklasa">{{ artikal.cijena }}</span><br>
+        Iznos bez PDV: <span class="spanklasa">{{ artikal.iznosBezPDV }}</span><br>
+        Posto rabata: <span class="spanklasa">{{ artikal.postoRabata }}</span><br>
+        Rabat: <span class="spanklasa">{{ artikal.rabat }}</span><br>
+        Iznos sa rabatom bez PDV: <span class="spanklasa">{{ artikal.iznostSaRabatomBezPDV }}</span><br>
+        PDV: <span class="spanklasa">{{ artikal.pdv }}</span><br>
+        Ukupno: <span class="spanklasa">{{ artikal.ukupno }}</span><br>
+      </div>
+      </div>
+  </div>
+    </div>
+
+    <div class="divDesno">
+      <div class="divFormaFaktura">
+      <h1 class="naslov" id="hdDodavanjeFakture">Dodavanje nove fakture</h1>
+      <form class="formclass" #form="ngForm">
+        <label>Partner:</label>
+        <input type="text" name="partner" [(ngModel)]="faktura.partner"><br>
+        <label>Datum: </label>
+        <input type="date" name="datum" [(ngModel)]="faktura.datum"><br>
+        <label>Iznos bez PDV:</label>
+        <input type="text" readonly name="iznosBezPDV" [(ngModel)]="faktura.iznosBezPDV"><br>
+        <label>Posto rabata: </label>
+        <input type="text" readonly name="postoRabata" [(ngModel)]="faktura.postoRabata"><br>
+        <label>Rabat: </label>
+        <input type="text" readonly name="rabat" [(ngModel)]="faktura.rabat"><br>
+        <label>Iznos sa rabatom bez PDV: </label>
+        <input type="text" readonly name="iznostSaRabatomBezPDV" [(ngModel)]="faktura.iznostSaRabatomBezPDV"><br>
+        <label>PDV: </label>
+        <input type="text" readonly name="pdv" [(ngModel)]="faktura.pdv"><br>
+        <label>Ukupno: </label>
+        <input type="text" readonly name="ukupno" [(ngModel)]="faktura.ukupno"><br>
+        <button class="dugmad" id="btnDodajAzurirajFakturu" (click)="dodajAzurirajFakturu()">Dodaj novu fakturu</button>
+        <button class="dugmad" id="btnPonistiPromjene" (click)="ponistiPromjene()">Otkazi dodavanje</button>
+      </form>
+      </div>
+      <div class="divFormaArtikal">
+      <h1 class="naslov" id="hdDodavanjeArtikla">Dodavanje artikla na fakturu</h1>
+      <form class="formclass" #form="ngForm" (ngSubmit)="dodajArtikalNaFakturu()">
+        <label>Naziv:</label>
+        <input type="text" name="naziv_artikla" [(ngModel)]="nazivArtikla"><br>
+        <label>Kolicina:</label>
+        <input type="text" name="kolicina" [(ngModel)]="kolicinaArtikla"><br>
+        <label>Cijena:</label>
+        <input type="text" name="cijena" [(ngModel)]="cijenaArtikla"><br>
+        <label>Posto rabata: </label>
+        <input type="text" name="postoRabataArtikal" [(ngModel)]="postoRabata"><br>
+        <button id="btnDodajArtikal" class="dugmad">Dodaj novi artikal</button>
+      </form>
+      </div>
+
+      <div class="divArtikli" id="artikliKorpa">
+        <h1 id="hdArtikliNaFakturi" class="naslov">Artikli na fakturi:</h1>
+        <div class="divArtikal" *ngFor="let artikal of artikliKorpa">
+          Naziv: <span class="spanklasa">{{ artikal.naziv_artikla }}</span><br>
+          Kolicina:  <span class="spanklasa">{{ artikal.kolicina }}</span><br>
+          Cijena:  <span class="spanklasa">{{ artikal.cijena }}</span><br>
+          Iznos bez PDV: <span class="spanklasa">{{ artikal.iznosBezPDV }}</span><br>
+          Posto rabata: <span class="spanklasa">{{ artikal.postoRabata }}</span><br>
+          Rabat: <span class="spanklasa">{{ artikal.rabat }}</span><br>
+          Iznos sa rabatom bez PDV: <span class="spanklasa">{{ artikal.iznostSaRabatomBezPDV }}</span><br>
+          PDV: <span class="spanklasa">{{ artikal.pdv }}</span><br>
+          Ukupno: <span class="spanklasa">{{ artikal.ukupno }}</span><br>
+          <button class="dugmad" id="btnUkloniArtikal" (click)="ukloniArtikalSaFakture(this.artikal)">Ukloni</button>
+          <button class="dugmad" (click)="urediArtikalUKorpi(this.artikal)">Izmjeni</button>
+        </div>
+    </div>
+
+    </div>
+   
+</div>
+

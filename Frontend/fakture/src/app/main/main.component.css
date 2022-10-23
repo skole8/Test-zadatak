@@ -1,0 +1,166 @@
+
+.divFakture{
+    float: left;
+    width: 100%;
+    padding: 1px;
+    padding-top: 0%;
+    height: 220px;
+    overflow: auto;
+    border: 1px solid black;
+    margin-bottom: 3%;
+    box-sizing:border-box;
+}
+
+.divLijevo{
+    width: 44%;
+    margin-left: 1%;
+    margin-top: 2vh;
+    float: left;
+}
+
+.divPregledFakture{
+    clear: both;
+    width:100%;
+    height: 470px;
+    padding-left: 1%;
+    padding-bottom: 1px;
+    margin-top: 10%;
+    overflow: auto;
+    border: 1px solid black;
+    box-sizing:border-box;
+    visibility: hidden;
+}
+
+.divFormaFaktura{
+    float: left;
+    padding: 1%;
+}
+.divFormaArtikal{
+    float: left;
+    padding: 1%;
+}
+.divArtikli
+{
+    margin-left: 10px;
+    clear: both;
+    width:50%;
+    height:235;
+    overflow: auto;
+}
+
+.dugmad{
+    margin: 1%;
+    font-size: medium;
+}
+
+.divHeader{
+    text-align: right;
+    margin-right: 60px;
+}
+
+.btnOperacijeNadFakturom{
+    margin: 10%;
+    font-size: larger;
+}
+
+.divArtikliNaPregledu{
+    clear: both;
+    height: 26vh;
+    overflow: auto;
+    margin-left: 0%;
+}
+
+.divArtikalPregled{
+    margin-left: 1%;
+    font-size: medium;
+    margin-bottom: 1%;
+    padding: 1%;
+    display: inline-block;
+    width: 30%;
+    border: 1px solid black;
+}
+
+.divArtikal
+{
+    display: inline-block;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    width: 28%;
+    padding: 1%;
+    border: 1px solid black;
+}
+
+.divDugmad
+{
+    float:left;
+}
+
+.divFakturaPregled{
+    font-size: larger;
+    float:left;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    width:70%; 
+    padding: 1%;
+    padding-top: 0%;
+    border: 1px solid black;
+}
+
+.divFaktura
+{
+    display: inline-block;
+    margin-bottom: 1%;
+    margin-left: 1%;
+    width:46%; 
+    padding: 1%;
+    border: 1px solid black;
+}
+
+.formclass{
+    display: inline-block;
+}
+
+#artikliKorpa{
+    width: 100%;
+}
+
+.divDesno{
+    margin-left: 2%;
+    margin-top: 1%;
+    display: inline;
+    width: 48%;
+    float: left;
+    border: 1px solid black;
+}
+
+.prikaz{
+    width: 100%;
+}
+
+.spanklasa
+{
+    font-weight: bold;
+    
+}
+
+.naslov
+{
+    text-align: left;
+    font-size: 25px;
+}
+
+#hdPregledFakture
+{
+    margin-left: 1%;
+    margin-top: 0%;
+    margin-bottom: 1vh;
+}
+
+#hdArtikliNaFakturi{
+    display: none;
+}
+
+#hdFakture{
+    margin-left: 1%;
+    margin-top: 0%;
+}

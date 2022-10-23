@@ -1,0 +1,19 @@
+<div>
+    <div class="divLogin"  id="divLogin">
+    <form class="loginForm" #form="ngForm">
+        <label>Email:</label><input type="text" name="email" [(ngModel)]="user.email"><br>
+        <label>Lozinka:</label><input type="password" name="password" [(ngModel)]="user.password"><br>
+        <button class="dugmad" (click)="login()">Prijavi se</button>
+        <button class="dugmad"  (click)="otvoriFormuZaRegistraciju()">Napravi novi nalog</button>
+    </form>
+    </div>
+    <div class="divRegistracija" id="divRegistracija">
+        <form class="registrationForm" #form="ngForm">
+            <label>Email: </label><input type="text" name="email" [(ngModel)]="email"><br>
+            <label>Lozinka:</label><input type="password" name="password" [(ngModel)]="password" ><br>
+            <label>Potvrdi lozinku:</label><input type="password" name="confirmPassword" [(ngModel)]="confirmPassword"><br>
+            <button class="dugmad" (click)="register()">Registruj se</button>
+            <button class="dugmad" (click)="otkaziRegistraciju()">Otkazi registraciju</button>
+        </form>
+    </div>
+</div>
