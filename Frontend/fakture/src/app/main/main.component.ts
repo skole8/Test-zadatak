@@ -154,9 +154,8 @@ export class MainComponent implements OnInit {
   ponistiPromjene() { //funkcija koja ponistava sve izmjene napravljene na fakturi
     if (this.faktura.id_fakture != '') //ako se uredjuje postojeca faktura
     {
-      if(this.faktura.ukupno!=this.fakturaNaPregledu.ukupno) // ako su se desile izmjene
+      if(this.izmjena) // ako su se desile izmjene
       {
-        console.log("fakture razlicite");
         this.artikliZaUklanjanje.forEach(element => {
         this.artikliKorpa.push(element);
       });
